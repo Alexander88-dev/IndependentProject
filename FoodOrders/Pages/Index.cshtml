@@ -1,9 +1,9 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Вход";
+    ViewData["Title"] = "Главное";
 }
-@* 
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
@@ -13,7 +13,7 @@
                     @Model.Message;
                 </div>
             }
-            @if (Model.IsAuthorized)
+            @if (Model.IsAuthorized)//!!!
             {
                 <div class="card shadow">
                     <div class="cardaccordion-body text-center">
@@ -91,10 +91,6 @@
                             <div class="tab-pane fade" id="register" role="tabpanel">
                                 <form method="post" asp-page-handler="Register">
                                     <div class="mb-3">
-                                        <label class="form-label">Имя</label>
-                                        <input asp-for="RegisterName" class="form-control" />
-                                    </div>
-                                    <div class="mb-3">
                                         <label class="form-label">Логин</label>
                                         <input asp-for="RegisterLogin" class="form-control" />
                                     </div>
@@ -103,7 +99,11 @@
                                         <label class="form-label">Возраст</label>
                                         <input asp-for="RegisterAge" class="form-control" />
                                     </div>
-
+                                    <div class="mb-3">
+                                        <label class="form-label">Номер телефона</label>
+                                        <input asp-for="RegistrPhoneNumber" class="form-control" />
+                                    </div>
+                                    
                                     <div class="mb-3">
                                         <label class="form-label">Пароль</label>
                                         <input asp-for="RegisterPassword" type="password" class="form-control" />
@@ -123,4 +123,4 @@
             }
         </div>
     </div>
-</div> *@
+</div>
