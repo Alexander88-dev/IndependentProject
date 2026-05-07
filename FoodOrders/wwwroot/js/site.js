@@ -19,3 +19,7 @@ function togglePassword(inputId, button)
         //label.innerText = 'новый текст'
     } 
 }
+
+document.getElementById('inputNumber').addEventListener('keydown', (event) => {
+        event.preventDefault();
+});
