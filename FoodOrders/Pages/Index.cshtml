@@ -13,19 +13,19 @@
                     @Model.Message;
                 </div>
             }
-            @if (Model.IsAuthorized)//!!!
+            @if (Model.IsAuthorized)
             {
                 <div class="card shadow">
                     <div class="cardaccordion-body text-center">
-                        <h2 class="md3">Здраствуйте, @Model.CurrentUserName, @Model.CurrentUserLogin.</h2>
+                        <h2 class="md3">Здраствуйте, @Model.CurrentUserLogin.</h2>
                         <p class="text-muted">
-                            Вы успешой вошли в аккаунт.
+                            Вы успешно вошли в аккаунт.
                         </p>
 
                         <div class="d-flex justify-content-center gap-2">
-                            <a asp-page="/Projects" class="btn btn-primary">Все проекты</a>
+                            <a asp-page="/Order" class="btn btn-primary">Сделать заказ</a>
 
-                            <a asp-page="/MyProjects" class="btn btn-primary">Мои проекты</a>
+                            <a asp-page="/MyOrders" class="btn btn-primary">Мои заказы</a>
                         </div>
 
                         <form method="post" asp-page-handler="Logout">
@@ -78,7 +78,7 @@
 
                                         <input asp-for="LoginPassword" type="password" class="form-control" id="PasswordVisibilityI" />
                                         <label id="labelId">
-                                            <input type="checkbox" onclick="togglePassword('loginPassword', this)"> Показать
+                                            <input type="checkbox" onclick="togglePassword('loginPassword', this)"> Изменить
                                         </label>
                                     </div>
 
