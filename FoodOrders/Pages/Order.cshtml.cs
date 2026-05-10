@@ -7,14 +7,14 @@ namespace FoodOrders.Pages
 {
     public class OrderModel : PageModel
     {
-        //private readonly IOrderService _projectService;
-        //private readonly ICurrentUserService _currentUserService;
+        private readonly IOrderService _projectService;
+        private readonly ICurrentUserService _currentUserService;
 
-        //public OrderModel(IOrderService projectService, ICurrentUserService currentUserService)
-        //{
-        //    _projectService = projectService;
-        //    _currentUserService = currentUserService;
-        //}
+        public OrderModel(IOrderService projectService, ICurrentUserService currentUserService)
+        {
+            _projectService = projectService;
+            _currentUserService = currentUserService;
+        }
         //[BindProperty]
         //public string Title { get; set; } = string.Empty;
         //[BindProperty]
@@ -23,9 +23,9 @@ namespace FoodOrders.Pages
         //public string Category { get; set; } = string.Empty;
         //[BindProperty]
         //public string Status { get; set; } = "Отправлен";
-        //public List<Order> Projects { get; set; } = new();
-        //public int TotalProjectsCount { get; set; }
-        //public string Message { get; set; } = string.Empty;
+        public List<Order> Orders { get; set; } = new();
+        public int TotalOrdersCount { get; set; }
+        public string Message { get; set; } = string.Empty;
         //public List<string> Categories { get; } = new()
         //{
         //    "Программировать",
@@ -41,10 +41,10 @@ namespace FoodOrders.Pages
         //    "В разработке",
         //    "Заершён"
         //};
-        //public void OnGet()
-        //{
-        //    LoadProjects();
-        //}
+        public void OnGet()
+        {
+            LoadOrderss();
+        }
         //public IActionResult OnPostAdd()
         //{
         //    var userId = _currentUserService.GetCurrentUserId(HttpContext);
@@ -74,10 +74,10 @@ namespace FoodOrders.Pages
         //    return RedirectToPage();
         //}
 
-        //private void LoadProjects()
-        //{
-        //    Projects = _projectService.GetAllOrders();
-        //    TotalProjectsCount = Projects.Count;
-        //}
+        private void LoadOrderss()
+        {
+            Orders = _projectService.GetAllOrders();
+            TotalOrdersCount = Orders.Count;
+        }
     }
 }
