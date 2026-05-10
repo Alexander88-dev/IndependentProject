@@ -4,9 +4,11 @@ namespace FoodOrders.Services
 {
     public interface IOrderService
     {
+        List<Order> GetAllOrders();
+
         public interface IOrderService
         {
-            List<Order> GetAllOrders();
+            List<Order> GetAllOrders(); //GetAllOrders
             List<Order> GetOrderByAuthorId(int authorId);
             Order? GetOrderById(int auhorId);
             void AddOrder(Order order);

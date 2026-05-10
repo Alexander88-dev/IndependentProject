@@ -10,47 +10,51 @@
     <button type="submit" class="btn btn-success" style="font-size: 130%">Заказать</button>
     <br>
     <br>
-        <div class="col-md-6 mb-4">
+    <div class="card-container shadow list-group-item-success">
         <div class="card Card shadow-sm">
-                <!-- Изображение куртки -->
-                <img src="https://main-cdn.sbermegamarket.ru/big2/hlr-system/-71/586/489/107/102/4/100071138732b0.jpg" alt="Салат">
+                <!-- Изображение-->
+            <img src="https://main-cdn.sbermegamarket.ru/big2/hlr-system/-71/586/489/107/102/4/100071138732b0.jpg" alt="Салат">
 
-                <!-- Название куртки -->
+                <!-- Название -->
                 <h3>Салат</h3>
 
                 <!-- Цена -->
-                <p class="price" style="font-size: 130%">200 руб.</p>
+                <p class="price" style="font-size: 140%">200 руб.</p>
 
                 <!-- Описание -->
-                <p>огурец, помидор, оливковое масло, зелень.</p>
+                <p>огурец, помидор, оливковое масло, зелень, ккал 50.</p>
 
-                <p>ккал 50.</p>
                 <!-- Кнопки -->
                 <label>
-                Кол <input type="number" value="1" min="1" max="100" />
+                    Кол <input id="inputNumber" type="number" value="1" min="1" max="100" />
                 </label>
+                <br>
+
+                <p style="font-size: 120%">Общая сумма: 0</p>
                 <br>
                 
                 <button>В корзину</button>
         </div>
-        <div class="card Card">
-            <img src="https://avatars.mds.yandex.net/i?id=030f427a012113262d8699b20473ecb9_l-4237726-images-thumbs&n=13" alt="Фри">
+        <div class="card Card shadow-sm">
+            <img class="imgC" src="https://avatars.mds.yandex.net/i?id=030f427a012113262d8699b20473ecb9_l-4237726-images-thumbs&n=13" alt="Фри">
 
             <h3>Картошка фри</h3>
 
             <p class="price" style="font-size: 130%">100 руб.</p>
 
-            <p>белорусская картошка.</p>
-
-            <p>ккал 260.</p>
+            <p>белорусская картошка, ккал 260.</p>
 
             <label>
                 Кол <input id="inputNumber" type="number" value="1" min="1" max="100" />
             </label>
             <br>
 
+            <p style="font-size: 120%">Общая сумма: 0</p>
+            <br>
+
             <button>В корзину</button>
         </div>
+    
     </div>
 
 </div>
