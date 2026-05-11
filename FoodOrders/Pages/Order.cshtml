@@ -7,11 +7,15 @@
 <div class="container mt-10">
     <h1 style="text-align: center; margin-bottom: 2rem; color: var(--text-primary);">Меню</h1>
     <hr>
+    <a asp-page="/Index" type="submit" style="background-color: darkred;font-size: 130%" class="btn btn-primary">Отменить заказ</a>
+    <br><br><br>
+    
     <button type="submit" class="btn btn-success" style="font-size: 130%">Заказать</button>
+    <p style="font-size: 150%;color: darkgreen">Сумма заказа 0 руб.</p>
     <br>
-    <br>
-    <div class="card-container shadow list-group-item-success">
-        <div class="card Card shadow-sm">
+    
+    <div id="idCardContainer" class="card-container shadow">
+        @* <div class="card Card shadow-sm">
                 <!-- Изображение-->
             <img src="https://main-cdn.sbermegamarket.ru/big2/hlr-system/-71/586/489/107/102/4/100071138732b0.jpg" alt="Салат">
 
@@ -26,17 +30,17 @@
 
                 <!-- Кнопки -->
                 <label>
-                    Кол <input id="inputNumber" type="number" value="1" min="1" max="100" />
+                Кол <input class="inputNumber" type="number" value="1" min="1" max="100" />
                 </label>
                 <br>
 
-                <p style="font-size: 120%">Общая сумма: 0</p>
+                <p style="font-size: 120%">Общая сумма: 0 руб.</p>
                 <br>
                 
                 <button>В корзину</button>
         </div>
         <div class="card Card shadow-sm">
-            <img class="imgC" src="https://avatars.mds.yandex.net/i?id=030f427a012113262d8699b20473ecb9_l-4237726-images-thumbs&n=13" alt="Фри">
+            <img src="https://avatars.mds.yandex.net/i?id=030f427a012113262d8699b20473ecb9_l-4237726-images-thumbs&n=13" alt="Фри">
 
             <h3>Картошка фри</h3>
 
@@ -45,7 +49,7 @@
             <p>белорусская картошка, ккал 260.</p>
 
             <label>
-                Кол <input id="inputNumber" type="number" value="1" min="1" max="100" />
+                Кол <input class="inputNumber" type="number" value="1" min="1" max="100" />
             </label>
             <br>
 
@@ -54,8 +58,8 @@
 
             <button>В корзину</button>
         </div>
-    
-    </div>
+     *@
+    </div> 
 
 </div>
 

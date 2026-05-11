@@ -15,16 +15,12 @@ namespace FoodOrders.Pages
             _projectService = projectService;
             _currentUserService = currentUserService;
         }
-        //[BindProperty]
-        //public string Title { get; set; } = string.Empty;
-        //[BindProperty]
-        //public string Description { get; set; } = string.Empty;
-        //[BindProperty]
-        //public string Category { get; set; } = string.Empty;
-        //[BindProperty]
-        //public string Status { get; set; } = "Отправлен";
+        [BindProperty]
+        public int  Number { get; set; }
+        [BindProperty]
+        public double Sum { get; set; }
+
         public List<Order> Orders { get; set; } = new();
-        public int TotalOrdersCount { get; set; }
         public string Message { get; set; } = string.Empty;
         //public List<string> Categories { get; } = new()
         //{
@@ -77,7 +73,6 @@ namespace FoodOrders.Pages
         private void LoadOrderss()
         {
             Orders = _projectService.GetAllOrders();
-            TotalOrdersCount = Orders.Count;
         }
     }
 }

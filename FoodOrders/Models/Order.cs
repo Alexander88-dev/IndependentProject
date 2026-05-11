@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public int Number { get; set; }
+        public double Sum { get; set; }
         public string Status { get; set; } = "Отправлен";//2 Готовиться,3 Готов
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
