@@ -34,17 +34,12 @@ body {
     border: 2px solid #333;
     padding: 20px;
     width: 300px;
-   padding: 10px 15px 20px 25px;
+    padding: 10px 15px 20px 25px;
 }
 
-/*.Card2 {
-    width: 500px;
-    padding: 10px 200px 20px 25px;*/ /**/
-/*}*/
 
 .card-container {
-    display: flex;
+    display: inline-flex;
     gap: 5px;
-
 }
 
