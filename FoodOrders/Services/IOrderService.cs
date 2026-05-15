@@ -4,6 +4,7 @@ namespace FoodOrders.Services
 {
     public interface IOrderService
     {
+        void AddOrder(Order project);
         List<Order> GetAllOrders();
 
         public interface IOrderService

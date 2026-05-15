@@ -2,6 +2,8 @@ using FoodOrders.Models;
 using FoodOrders.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Reflection.Metadata;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FoodOrders.Pages
 {
@@ -16,63 +18,52 @@ namespace FoodOrders.Pages
             _currentUserService = currentUserService;
         }
         [BindProperty]
+        public string Sum { get; set; }
         public int  Number { get; set; }
-        [BindProperty]
-        public double Sum { get; set; }
-
         public List<Order> Orders { get; set; } = new();
+        public int TotalOrdersCount { get; set; }
+
         public string Message { get; set; } = string.Empty;
-        //public List<string> Categories { get; } = new()
-        //{
-        //    "Программировать",
-        //    "Играть",
-        //    "Сайты",
-        //    "Мобильные приложения",
-        //    "Дизайн",
-        //    "Другое"
-        //};
-        //public List<string> Statuses { get; } = new()
-        //{
-        //    "Идея",
-        //    "В разработке",
-        //    "Заершён"
-        //};
+       
         public void OnGet()
         {
             LoadOrderss();
         }
-        //public IActionResult OnPostAdd()
-        //{
-        //    var userId = _currentUserService.GetCurrentUserId(HttpContext);
+        public IActionResult OnPostAdd()
+        {
+           // Sum = basketId.Text;
+            var userId = _currentUserService.GetCurrentUserId(HttpContext);
+            if (userId == null)
+            {
+                return Redirect("/Index");
+            }
+            if (Sum.Length == null)//!!!!!!!!!!!
+            {
+                Message = "Добавьте продукты в корзину.";
+                LoadOrderss();
+                return Page();
+            }
+            Console.WriteLine("Тест3");
+            var order = new Order
+            {
+             //   Sum = Sum,
+                Number = ++Number,
+                Status = "Отправлен",
+                CreatedAt = DateTime.Now,
+                AuthorId = userId.Value
+            };
+            
+          //  Sum = 0;
+            //LoadOrderss();
+            //Message = "";
 
-        //    if (userId == null)
-        //    {
-        //        return Redirect("/Index");
-        //    }
-        //    if (string.IsNullOrEmpty(Title) ||
-        //            string.IsNullOrEmpty(Description) ||
-        //            string.IsNullOrEmpty(Category) ||
-        //            string.IsNullOrEmpty(Status))
-        //    {
-        //        Message = "Заполните все поля.";
-        //        LoadProjects();
-        //        return Page();
-        //    }
-        //    var project = new Order
-        //    {
-        //        Title = Title,
-        //        Description = Description,
-        //        Category = Category,
-        //        CreatedAt = DateTime.Now,
-        //        AuthorId = userId.Value
-        //    };
-        //    _projectService.AddOrder(project);
-        //    return RedirectToPage();
-        //}
-
+            _projectService.AddOrder(order);
+            return RedirectToPage();
+        }
         private void LoadOrderss()
         {
             Orders = _projectService.GetAllOrders();
+            TotalOrdersCount = Orders.Count;
         }
     }
 }
