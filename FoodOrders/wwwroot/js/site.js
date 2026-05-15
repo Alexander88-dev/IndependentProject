@@ -1,5 +1,7 @@
 ﻿var sizeProducts = 0;
 var sum = 0;
+globalThis.counter = 0;
+
 function togglePassword(inputId, button) {
     const input = document.getElementById("PasswordVisibilityI");
     //const label = document.getElementById("labelId");
@@ -54,7 +56,9 @@ jQuery(document).ready(function () {
 
 function OnChangeEvent() {
     for (var i = 0; i < sizeProducts; i++) {
-        document.getElementById(`sumId${[i]}`).textContent = `Общая сумма: ${document.getElementById(`imputId${[i]}`).value * Number(document.getElementById(`moneyId${[i]}`).textContent.replace(/\D/g, ''))} руб.`;
+        document.getElementById(`sumId${[i]}`).textContent =
+            `Общая сумма: ${document.getElementById(`imputId${[i]}`).value *
+            Number(document.getElementById(`moneyId${[i]}`).textContent.replace(/\D/g, ''))} руб.`;
     }
 }
 function AddToCart(id)
@@ -63,8 +67,11 @@ function AddToCart(id)
     document.getElementById(`basketId`).textContent = `Сумма заказа ${sum} руб.`;
 }
 
+function OrderClick()
+{
+    counter = document.getElementById(`basketId`).textContent.replace(/\D/g, '');
+}
 
-            //Sum = document.querySelector('p').textContent;
 
 
 
