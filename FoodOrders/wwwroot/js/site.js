@@ -1,6 +1,5 @@
 ﻿var sizeProducts = 0;
 var sum = 0;
-globalThis.counter = 0;
 
 function togglePassword(inputId, button) {
     const input = document.getElementById("PasswordVisibilityI");
@@ -69,7 +68,7 @@ function AddToCart(id)
 
 function OrderClick()
 {
-    counter = document.getElementById(`basketId`).textContent.replace(/\D/g, '');
+    document.getElementById("hiddenText").value = document.getElementById(`basketId`).textContent.replace(/\D/g, '');
 }
 
 

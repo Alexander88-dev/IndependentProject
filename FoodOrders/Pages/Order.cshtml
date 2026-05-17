@@ -12,14 +12,15 @@
     <a asp-page="/Index" type="submit" style="background-color: darkred;font-size: 130%" class="btn btn-primary">Отменить заказ</a>
 
     <br><br><br>
-     @* <form method="post" asp-page-handler="Add"> *@
+    <form method="post" asp-page-handler="Add">
          <div class="alert alert-warning">
              @Model.Message
          </div>
         <button type="submit" class="btn btn-success" style="font-size: 130%" onclick="OrderClick()">Заказать</button>
         <br>
         <label id="basketId" style="font-size: 150%;color: darkgreen">Сумма заказа 0 руб.</label>
-    @* </form>  *@
+        <input type="hidden" name="Sum" id="hiddenText" />
+    </form>
     <br>
     
     <div id="idCardContainer" class="card-container shadow"></div>

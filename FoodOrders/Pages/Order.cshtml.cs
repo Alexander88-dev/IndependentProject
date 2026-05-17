@@ -49,8 +49,8 @@ namespace FoodOrders.Pages
             }
             Console.WriteLine(Sum +"    Тест");
           //  if (Sum == "")//!!!!!!!!!!!
-          //  {
-          //      Message = "Добавьте продукты в корзину.";
+          //  {рз
+          //      Message = "Добавьте продукты в коину.";
           //      LoadOrderss();
           //      return Page();
           //  }
