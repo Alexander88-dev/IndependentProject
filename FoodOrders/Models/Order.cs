@@ -6,6 +6,7 @@
         public int Number { get; set; }
         public double Sum { get; set; }
         public string Status { get; set; } = "Отправлен";//2 Готовиться,3 Готов
+        Dictionary<string,int> Dishes = new Dictionary<string,int>();
         public DateTime CreatedAt { get; set; }
 
         public int AuthorId { get; set; }
