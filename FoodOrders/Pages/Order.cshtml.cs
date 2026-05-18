@@ -48,29 +48,30 @@ namespace FoodOrders.Pages
                 return Redirect("/Index");
             }
             Console.WriteLine(Sum +"    Тест");
-          //  if (Sum == "")//!!!!!!!!!!!
-          //  {рз
-          //      Message = "Добавьте продукты в коину.";
-          //      LoadOrderss();
-          //      return Page();
-          //  }
-          //  var order = new Order
-          //  {
-          //   //   Sum = Sum,
-          //      Number = ++Number,
-          //      Status = "Отправлен",
-          //      CreatedAt = DateTime.Now,
-          //      AuthorId = userId.Value
-          //  };
-            
-          ////  Sum = 0;
-          //  //LoadOrderss();
-          //  //Message = "";
+            if (Sum == 0)//!!!!!!!!!!!
+            {
+                Message = "Добавьте продукты в коину.";
+                LoadOrderss();
+                return Page();
+            }
+            //  var order = new Order
+            //  {
+            //   //   Sum = Sum,
+            //      Number = ++Number,
+            //      Status = "Отправлен",
+            //      CreatedAt = DateTime.Now,
+            //      AuthorId = userId.Value
+            //  };
 
-          //  _projectService.AddOrder(order);
+            Sum = 0;
+            LoadOrderss();
+            Message = "";
+
+            //  _projectService.AddOrder(order);
             return RedirectToPage();
         }
         private void LoadOrderss()
+
         {
             Orders = _projectService.GetAllOrders();
             TotalOrdersCount = Orders.Count;
