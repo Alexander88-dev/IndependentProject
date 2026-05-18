@@ -19,7 +19,7 @@ namespace FoodOrders.Services
                 .ThenByDescending(p => p.Id)
                 .ToList();
         }
-        public List<Order> GetProjectByAuthorId(int authorId)
+        public List<Order> GetOrderByAuthorId(int authorId)
         {
             return _context.Orders
                 .Include(p => p.Author)
@@ -34,22 +34,22 @@ namespace FoodOrders.Services
                 .Include(p => p.Author)
                 .FirstOrDefault(p => p.Id == id);
         }
-        public void AddOrder(Order project)
+        public void AddOrder(Order order)
         {
-            _context.Orders.Add(project);
+            _context.Orders.Add(order);
             _context.SaveChanges();
         }
-        public void UpdateProject(Order project)
+        public void UpdateOrder(Order order)
         {
-            _context.Orders.Update(project);
+            _context.Orders.Update(order);
             _context.SaveChanges();
         }
-        public void DeleteProject(Order project)
+        public void DeleteOrder(Order order)
         {
-            _context.Orders.Remove(project);
+            _context.Orders.Remove(order);
             _context.SaveChanges();
         }
-        public bool ProjectExists(int id)
+        public bool OrderExists(int id)
         {
             return _context.Orders.Any(p => p.Id == id);
         }
