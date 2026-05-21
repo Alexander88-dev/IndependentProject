@@ -11,6 +11,36 @@ namespace FoodOrders.Services
         {
             _context = context;
         }
+
+        public bool IsAuthenticated(HttpContext httpContext)
+        {
+            return httpContext.Session.GetInt32("OrderId") != null;
+        }
+        public int? GetCurrentOrderId(HttpContext httpContext)
+        {
+            return httpContext.Session.GetInt32("OrderId");
+        }
+        public Order? GetCurrentOrder(HttpContext httpContext)
+        {
+            var orderId = GetCurrentOrderId(httpContext);
+
+            if (orderId == null)
+            {
+                return null;
+            }
+
+            return _context.Orders.FirstOrDefault(u => u.Id == orderId.Value);
+        }
+        public void SignIn(HttpContext httpContext, int orderId)
+        {
+            httpContext.Session.SetInt32("OrderId", orderId);
+        }
+
+        public void SignOut(HttpContext httpContext)
+        {
+            httpContext.Session.Clear();
+        }
+
         public List<Order> GetAllOrders()
         {
             return _context.Orders

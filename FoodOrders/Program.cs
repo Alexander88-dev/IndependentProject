@@ -20,6 +20,8 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IFoodService, FoodService>();
+
 
 var app = builder.Build();
 

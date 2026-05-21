@@ -4,6 +4,12 @@ namespace FoodOrders.Services
 {
     public interface IOrderService
     {
+        bool IsAuthenticated(HttpContext httpContext);
+        int? GetCurrentOrderId(HttpContext httpContext);
+        Order? GetCurrentOrder(HttpContext httpContext);
+        void SignIn(HttpContext httpContext, int orderId);
+        void SignOut(HttpContext httpContext);
+
         List<Order> GetAllOrders(); 
         List<Order> GetOrderByAuthorId(int authorId);
         Order? GetOrderById(int auhorId);
@@ -13,13 +19,3 @@ namespace FoodOrders.Services
         bool OrderExists(int id);
     }
 }
-/*
- Путник:
-cd .\название папки  проекта\
-
-dotnet build
-
-dotnet ef migrations add название
-
-dotnet ef database update
- */

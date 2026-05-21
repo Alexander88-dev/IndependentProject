@@ -13,13 +13,21 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace FoodOrders.Pages
 {
-    public class OrderModel(IOrderService projectService, ICurrentUserService currentUserService) : PageModel
+    public class OrderModel(IOrderService orderService, ICurrentUserService currentUserService, IFoodService foodService) : PageModel
     {
-        private readonly IOrderService _projectService = projectService;
+        private readonly IOrderService _orderService = orderService;
         private readonly ICurrentUserService _currentUserService = currentUserService;
-
+     //   private readonly IFoodService _foodService = foodService;
+        
         [BindProperty]
-        public int Sum { get; set; }//!!!!!!!!!!!
+        public int Sum { get; set; }
+        [BindProperty]
+        public string NameFood { get; set; } = string.Empty;
+        [BindProperty]
+        public int CountFood { get; set; }
+        
+        public Dictionary<string, int> Foods = new Dictionary<string, int>();
+
         public int  Number { get; set; }
         public List<Order> Orders { get; set; } = new();
         public int TotalOrdersCount { get; set; }
@@ -27,28 +35,39 @@ namespace FoodOrders.Pages
         public string Message { get; set; } = string.Empty;
 
 
-
-
         public void OnGet()
         {
             LoadOrderss();
         }
-        //public partial class GlobalInterop
+        //public IActionResult OnPostAdds()
         //{
-        //    [JSImport("globalThis.counter")]
-        //    public static partial int Counter { get; }
-        //}
+        //    var orderId = _orderService.GetCurrentOrderId(HttpContext);
+        //    if (orderId == null)
+        //    {
+        //        return Redirect("/Index");
+        //    }
+ 
+        //    //  var order = new Order
+        //    //  {
+        //    //   //   Sum = Sum,
+        //    //      Number = ++Number,
+        //    //      Status = "Отправлен",
+        //    //      CreatedAt = DateTime.Now,
+        //    //      AuthorId = userId.Value
+        //    //  };
 
+        //    //  foodService.AddOrder(order);
+        //    return RedirectToPage();
+        //}
         public IActionResult OnPostAdd()
         {
-           // Sum = GlobalInterop.Counter;
             var userId = _currentUserService.GetCurrentUserId(HttpContext);
             if (userId == null)
             {
                 return Redirect("/Index");
             }
             Console.WriteLine(Sum +"    Тест");
-            if (Sum == 0)//!!!!!!!!!!!
+            if (Sum == 0)
             {
                 Message = "Добавьте продукты в коину.";
                 LoadOrderss();
@@ -67,13 +86,12 @@ namespace FoodOrders.Pages
             LoadOrderss();
             Message = "";
 
-            //  _projectService.AddOrder(order);
+            //  orderService.AddOrder(order);
             return RedirectToPage();
         }
         private void LoadOrderss()
-
         {
-            Orders = _projectService.GetAllOrders();
+            Orders = _orderService.GetAllOrders();
             TotalOrdersCount = Orders.Count;
         }
     }
