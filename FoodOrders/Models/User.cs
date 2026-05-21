@@ -7,6 +7,7 @@
         public string HashPassword { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public int Age { get; set; }
+       
         public List<Order> Orders { get; set; } = new List<Order>();
     }
 }
