@@ -1,17 +1,17 @@
-﻿namespace FoodOrders.Models
+﻿using FoodOrders.Models;
+
+namespace FoodOrders.Dtos
 {
-    public class Order
+    public class OrderDto
     {
         public int Id { get; set; }
         public double Sum { get; set; }
-        public string Status { get; set; } = "Отправлен";//2 Готовиться,3 Готов
+        public string Status { get; set; } = "Отправлен";
         public DateTime CreatedAt { get; set; }
-        
+
         public List<Food> Foods { get; set; } = new List<Food>();
 
         public int AuthorId { get; set; }
-        public User? Author { get; set; }
-
-
+        public string? AutorName { get; set; }
     }
 }
