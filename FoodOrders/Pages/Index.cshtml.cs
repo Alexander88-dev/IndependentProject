@@ -92,7 +92,8 @@ namespace FoodOrders.Pages
             {
                 Login = RegisterLogin,
                 PhoneNumber = RegistrPhoneNumber,
-                Age = (int)RegisterAge
+                Age = (int)RegisterAge,
+                PersonType = "User"
             };
 
             user.HashPassword = _passeordHasher.HashPassword(user, RegisterPassword);
