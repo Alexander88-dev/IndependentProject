@@ -17,7 +17,7 @@ namespace FoodOrders.Pages
     {
         private readonly IOrderService _orderService = orderService;
         private readonly ICurrentUserService _currentUserService = currentUserService;
-     //   private readonly IFoodService _foodService = foodService;
+        private readonly IFoodService _foodService = foodService;
         
         [BindProperty]
         public int Sum { get; set; }
@@ -39,26 +39,27 @@ namespace FoodOrders.Pages
         {
             LoadOrderss();
         }
-        //public IActionResult OnPostAdds()
-        //{
-        //    var orderId = _orderService.GetCurrentOrderId(HttpContext);
-        //    if (orderId == null)
-        //    {
-        //        return Redirect("/Index");
-        //    }
- 
-        //    //  var order = new Order
-        //    //  {
-        //    //   //   Sum = Sum,
-        //    //      Number = ++Number,
-        //    //      Status = "Отправлен",
-        //    //      CreatedAt = DateTime.Now,
-        //    //      AuthorId = userId.Value
-        //    //  };
+        public IActionResult OnPostFood()
+        {
+            //var foodId = _foodService.GetCurrentOrderId(HttpContext);
+            //if (foodId == null)
+            //{
+            //    return Redirect("/Index");
+            //}
 
-        //    //  foodService.AddOrder(order);
-        //    return RedirectToPage();
-        //}
+            //  var order = new Order
+            //  {
+            //   //   Sum = Sum,
+            //      Number = ++Number,
+            //      Status = "Отправлен",
+            //      CreatedAt = DateTime.Now,
+            //      AuthorId = userId.Value
+            //  };
+
+            //  foodService.AddOrder(order);
+            return RedirectToPage();
+        }
+
         public IActionResult OnPostAdd()
         {
             var userId = _currentUserService.GetCurrentUserId(HttpContext);
