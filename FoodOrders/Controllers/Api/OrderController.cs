@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace FoodOrders.Controllers.Api
 {
     [ApiController]
-    [Route("/api/speechLogs")]//!!!!!!!!!
+    [Route("/api/OrderService")]//!!!!!!!!!
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
         private readonly ICurrentUserService _currentUserService;
 
-        public OrderController(IOrderService speechLogService,
+        public OrderController(IOrderService orderService,
             ICurrentUserService currentUserService)
         {
-            _orderService = speechLogService;
+            _orderService = orderService;
             _currentUserService = currentUserService;
         }
         [HttpGet]

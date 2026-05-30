@@ -35,13 +35,15 @@ jQuery(document).ready(function () {
                         <img src="${products[i][1]}" alt="${products[i][0]}">
                         <p class="price" style="font-size: 140%" id = "moneyId${[i]}">${products[i][2]} руб.</p>
                         <p>${products[i][3]}</p>
-                        <label>
-                            Кол <input onchange = "OnChangeEvent()" type="number" value="1" min="1" max="100" id = "imputId${[i]}" />
-                        </label>
-                        <br>
-                        <p style="font-size: 120%" id = "sumId${[i]}">Общая сумма: ${products[i][2]} руб.</p>
-                        <br>
-                        <button onclick = "AddToCart('${i}')" id = "basketId${[i]}">В корзину</button>
+                            <label>
+                                Кол <input onchange = "OnChangeEvent()" type="number" value="1" min="1" max="100" id = "imputId${[i]}" name="food" />
+                            </label>
+                            <br>
+                            <p style="font-size: 120%" id = "sumId${[i]}">Общая сумма: ${products[i][2]} руб.</p>
+                            <br>
+                        <form method="post" asp-page-handler="Food">
+                            <button onclick = "AddToCart('${i}')" id = "basketId${[i]}">В корзину</button>
+                        </form>
                         `;
 
         // Нужно исправить, try заглушка
